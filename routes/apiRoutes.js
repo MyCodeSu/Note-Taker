@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
+var uniqid = require('uniqid');
+
 // routing
 module.exports = (app) => {
 
@@ -18,7 +20,7 @@ module.exports = (app) => {
         let taskNote = {
             title: req.body.title,
             text: req.body.text,
-            id: Math.floor(Math.random() * 1000)
+            id: uniqid()
         };
         // pushing taskNote to db.json
         db.push(taskNote);
